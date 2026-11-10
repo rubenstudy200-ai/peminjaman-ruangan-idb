@@ -3339,79 +3339,13 @@ dialog.modal::backdrop {
   }
 }
 
-/* ---------- Booking page hero ---------- */
+/* ---------- Booking page ---------- */
 .availability-page {
   background: var(--base);
 }
 
-.app-hero {
-  min-height: calc(100dvh - var(--header-h));
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--line);
-}
-
-.app-hero-inner {
-  width: 100%;
-  max-width: var(--width);
-  margin-inline: auto;
-  padding: var(--space-xl) var(--space-m);
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: var(--space-2xl);
-  align-items: center;
-}
-
-.app-hero-title {
-  font-family: var(--font-display);
-  font-size: var(--step-7);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.045em;
-  margin-top: var(--space-s);
-}
-
-.app-hero-lede {
-  margin-top: var(--space-m);
-  max-width: 46ch;
-  font-size: var(--step-1);
-  line-height: 1.5;
-  color: var(--ink-2);
-}
-
-.app-hero-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: end;
-  gap: var(--space-m);
-  text-align: center;
-}
-
-.app-hero-mark {
-  width: clamp(150px, 20vw, 280px);
-  height: auto;
-}
-
-.app-hero-caption {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.app-hero-caption strong {
-  font-size: var(--step--1);
-  font-weight: 700;
-}
-
-.app-hero-caption span {
-  font-size: var(--step--2);
-  color: var(--ink-3);
-}
-
 .schedule {
   scroll-margin-top: var(--header-h);
-  padding-top: var(--space-2xl);
 }
 
 .schedule-title {
@@ -3426,40 +3360,6 @@ dialog.modal::backdrop {
   margin-top: var(--space-2xs);
   font-size: var(--step--1);
   color: var(--ink-2);
-}
-
-@media (max-width: 960px) {
-  .app-hero-inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-  }
-
-  .app-hero-brand {
-    flex-direction: row;
-    justify-self: start;
-    align-items: center;
-    text-align: left;
-  }
-
-  .app-hero-mark {
-    width: 96px;
-  }
-}
-
-@media (max-width: 760px) {
-  .app-hero {
-    min-height: auto;
-  }
-
-  .app-hero-title {
-    font-size: var(--step-6);
-  }
-}
-
-@media (max-width: 520px) {
-  .app-hero-title {
-    font-size: var(--step-5);
-  }
 }
 
 /* ---------- Print ---------- */

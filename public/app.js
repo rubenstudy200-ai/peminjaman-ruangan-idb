@@ -672,31 +672,12 @@ function renderAvailability(token) {
 
   app.innerHTML = `
     <div class="availability-page">
-      <section class="app-hero" aria-labelledby="app-hero-title">
-        <div class="app-hero-inner">
-          <div class="app-hero-copy">
-            <p class="eyebrow">Sistem peminjaman ruangan · IDB Bali</p>
-            <h1 class="app-hero-title" id="app-hero-title">Ruang kampus,<br />tanpa <span class="accent-word">bentrok</span>.</h1>
-            <p class="app-hero-lede">Lihat ruang yang kosong, ajukan peminjaman, dan pantau persetujuan dalam satu tempat. Dibuat untuk mahasiswa, dosen, dan staf Institut Desain dan Bisnis Bali.</p>
-            <div class="hero-actions">
-              <button class="btn btn-primary" type="button" data-action="scroll-schedule">Lihat ketersediaan <span aria-hidden="true">↓</span></button>
-              <a class="text-link" href="#/pengajuan">Riwayat pengajuan</a>
-            </div>
-            <p class="hero-note">Ajukan paling lambat ${state.settings.minNoticeDays} hari sebelum kegiatan · Tanggal dan jam dalam WITA</p>
-          </div>
-          <div class="app-hero-brand">
-            <img class="app-hero-mark" src="/assets/idb-mark.png" alt="Logo Institut Desain dan Bisnis Bali" width="260" height="260" />
-            <p class="app-hero-caption"><strong>Institut Desain &amp; Bisnis Bali</strong><span>Empowering People to be Creative</span></p>
-          </div>
-        </div>
-      </section>
-
       <div class="page">
         <section class="schedule" id="schedule" aria-labelledby="schedule-title">
           <div class="availability-head">
             <div>
               <p class="eyebrow">Ketersediaan ruangan</p>
-              <h2 class="schedule-title" id="schedule-title">Pilih tanggal, lalu ruang.</h2>
+              <h1 class="schedule-title" id="schedule-title">Pilih tanggal, lalu ruang.</h1>
               <p class="schedule-lede">Cari ruang kosong, ajukan peminjaman, dan pantau statusnya.</p>
             </div>
             <div class="head-note">
