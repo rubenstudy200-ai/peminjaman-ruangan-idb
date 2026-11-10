@@ -110,7 +110,7 @@ function roomPayload(payload, existing = null) {
   if (!floor) errors.floor = 'Isi lantai.';
   if (!categories.has(category)) errors.category = 'Pilih kategori ruangan.';
   if (!Number.isInteger(capacity) || capacity < 1 || capacity > 1000) {
-    errors.capacity = 'Kapasitas harus 1–1000 orang.';
+    errors.capacity = 'Kapasitas harus 1â€“1000 orang.';
   }
   if (!isValidTime(openTime) || !isValidTime(closeTime) || timeToMin(openTime) >= timeToMin(closeTime)) {
     errors.openTime = 'Jam operasional tidak valid.';
@@ -121,7 +121,7 @@ function roomPayload(payload, existing = null) {
     maxDuration > 720 ||
     maxDuration % 30 !== 0
   ) {
-    errors.maxDurationMinutes = 'Durasi maksimum harus 30–720 menit (kelipatan 30).';
+    errors.maxDurationMinutes = 'Durasi maksimum harus 30â€“720 menit (kelipatan 30).';
   }
   if (Object.keys(errors).length > 0) return { errors };
 
@@ -226,8 +226,10 @@ export async function handleApi(req, res, url, ctx, deps) {
     }
     loginAttempts.delete(key);
     db.prepare('DELETE FROM sessions WHERE expires_at < ?').run(now);
-    const token = randomToken(32);
     const expiresAt = now + deps.sessionDays * 24 * 60 * 60 * 1000;
+    const token = deps.createSessionToken
+      ? deps.createSessionToken(account.id, expiresAt)
+      : randomToken(32);
     db.prepare(
       'INSERT INTO sessions (token, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)',
     ).run(token, account.id, expiresAt, new Date(now).toISOString());

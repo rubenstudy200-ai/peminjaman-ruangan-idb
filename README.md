@@ -1,4 +1,4 @@
-# Ruang IDB — Sistem Peminjaman Ruangan
+# Ruang IDB â€” Sistem Peminjaman Ruangan
 
 Aplikasi web responsif/PWA untuk melihat ketersediaan ruangan, mengajukan peminjaman, memproses persetujuan, dan memantau status peminjaman di Institut Desain dan Bisnis Bali (IDB Bali).
 
@@ -29,6 +29,20 @@ Variabel lingkungan opsional:
 | `DB_PATH` | `data/idb.sqlite` | Lokasi database |
 | `HTTPS` | tidak diset | Set `1` agar cookie sesi memakai flag `Secure` di belakang HTTPS |
 
+## Deploy ke Vercel (mode demo)
+
+Vercel tidak bisa menjalankan `server.js` sebagai proses panjang dan filesystem-nya read-only, sehingga aplikasi memakai jalur khusus:
+
+- `api/index.js` adalah fungsi serverless yang membungkus handler yang sama dengan server lokal.
+- Database SQLite ditaruh di `/tmp` (per instance) dan diisi seed otomatis. Data bersifat sementara: kembali ke data demo saat instance didaur ulang, dan tiap instance punya salinan sendiri.
+- Sesi login memakai token bertanda tangan (HMAC) agar tetap sah walau request ditangani instance berbeda. Set `SESSION_SECRET` di Vercel (Settings > Environment Variables) agar token tidak memakai nilai default.
+- `vercel.json` menyajikan folder `public/` sebagai situs statis dan mengarahkan `/api/*` ke `api/index.js`.
+- Cookie sesi otomatis memakai flag `Secure` ketika berjalan di Vercel.
+
+Untuk data yang benar-benar persisten, pindahkan database ke layanan terkelola (Turso/libSQL, Neon/Postgres) atau jalankan di host yang mendukung proses Node + disk persisten (Railway, Render, Fly.io, VPS).
+
+Catatan: Deployment Protection Vercel harus dimatikan bila situs ingin diakses publik; jika aktif, semua request termasuk `/api/*` dibalas 401.
+
 ## Akun demo
 
 Kata sandi semua akun: **`idb12345`**
@@ -42,7 +56,7 @@ Kata sandi semua akun: **`idb12345`**
 
 ## Cakupan PRD
 
-### Must (MVP) — selesai
+### Must (MVP) â€” selesai
 
 | ID | Kebutuhan | Implementasi |
 | --- | --- | --- |
