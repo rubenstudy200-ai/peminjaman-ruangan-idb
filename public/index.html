@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="description" content="Sistem Peminjaman Ruangan Institut Desain dan Bisnis Bali. Lihat ruang kosong, ajukan peminjaman, dan pantau statusnya dalam satu tempat." />
+    <title>Ruang IDB — Peminjaman Ruangan Kampus</title>
+    <link rel="icon" href="/assets/idb-mark.png" type="image/png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#app">Lewati ke konten</a>
+
+    <header class="site-header" id="site-header" hidden>
+      <div class="header-inner">
+        <a class="brand" href="#/ketersediaan" aria-label="Ruang IDB, ke halaman ketersediaan">
+          <img class="brand-logo" src="/assets/idb-mark.png" alt="" width="34" height="34" />
+          <span class="brand-text">
+            <span class="brand-name">Ruang IDB</span>
+            <span class="brand-sub">Institut Desain dan Bisnis Bali</span>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navigasi utama">
+          <a href="#/ketersediaan" data-nav="ketersediaan">Ketersediaan</a>
+          <a href="#/pengajuan" data-nav="pengajuan">Pengajuan saya</a>
+          <a href="#/admin" data-nav="admin" id="nav-admin" hidden>Admin</a>
+        </nav>
+
+        <div class="user-area">
+          <span class="user-chip" id="user-chip"></span>
+          <button class="btn btn-ghost btn-sm" type="button" id="logout-btn">Keluar</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="app" tabindex="-1">
+      <div class="boot" role="status">
+        <span class="boot-mark" aria-hidden="true"></span>
+        <p>Memuat Ruang IDB…</p>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="site-footer" hidden>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img class="footer-logo" src="/assets/idb-logo.png" alt="IDB Bali" />
+          <p><strong>Ruang IDB</strong> — Sarana Prasarana, Institut Desain dan Bisnis Bali.</p>
+        </div>
+        <p>Jam operasional kampus 07.00–21.00 WITA. Dokumen peminjaman diterbitkan oleh sistem.</p>
+      </div>
+    </footer>
+
+    <div id="dialog-root"></div>
+    <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="false"></div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

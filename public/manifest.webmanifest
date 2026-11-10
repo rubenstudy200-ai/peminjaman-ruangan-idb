@@ -1,0 +1,19 @@
+{
+  "name": "Ruang IDB — Peminjaman Ruangan",
+  "short_name": "Ruang IDB",
+  "description": "Sistem Peminjaman Ruangan Institut Desain dan Bisnis Bali",
+  "start_url": "/#/ketersediaan",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/assets/idb-mark.png",
+      "sizes": "509x508",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
